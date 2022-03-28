@@ -12,7 +12,7 @@ namespace OutlookTests
         private OutlookMainPage? _outlookMainPage;
 
         [TestMethod]
-        public void Outlook_Signin_CreateMessage_Logout()
+        public void Outlook_Signin_CreateMessage_Signout()
         {
             // navigate to signin page
             _homePage = new HomePage();
@@ -31,7 +31,7 @@ namespace OutlookTests
         }
 
         [TestMethod]
-        public void Outlook_Signin_DiscardMessage()
+        public void Outlook_Signin_DiscardMessage_Signout()
         {
             // navigate to signin page
             _homePage = new HomePage();

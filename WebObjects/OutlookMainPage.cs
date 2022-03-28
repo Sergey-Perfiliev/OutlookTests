@@ -18,7 +18,7 @@ namespace OutlookTests.WebObjects
         private readonly BaseElement _closemessageButton = new BaseElement(By.XPath("//div[@title='Selenium PageObject, Grid']/button"));
 
         private readonly BaseElement _draftsButton = new BaseElement(By.XPath("//div[@title='Drafts'][1]/.."));
-        private readonly BaseElement _selectMessageToDeleteSpan =
+        private readonly BaseElement _selectDraftToDeleteSpan =
             new BaseElement(By.XPath("//div[@aria-label='Message list']//div[@role='listbox']//span[text()='" + subjectMailMessage + "']"));
         private readonly BaseElement _discardMessageButton = new BaseElement(By.XPath("//div[@id='docking_InitVisiblePart_0']//button[@aria-label='Discard']"));
         private readonly BaseElement _acceptDiscardMessageButton = new BaseElement(By.XPath("//div[contains(@class, 'ms-Dialog-main')]//button[contains(@id,'ok')]"));
@@ -44,7 +44,7 @@ namespace OutlookTests.WebObjects
         {
             _draftsButton.Click();
 
-            _selectMessageToDeleteSpan.Click();
+            _selectDraftToDeleteSpan.Click();
             _discardMessageButton.Click();
             _acceptDiscardMessageButton.Click();
         }
