@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OutlookTests.Tests;
 using OutlookTests.WebObjects;
+using System;
 
 namespace OutlookTests
 {
@@ -22,9 +23,16 @@ namespace OutlookTests
             _signinPage = new SigninPage();
             _signinPage.Signin();
 
-            // create new message
+            // create new draft
             _outlookMainPage = new OutlookMainPage();
-            _outlookMainPage.CreateNewMessage();
+
+            //expected value
+            int draftsCount = _outlookMainPage.GetDraftsCount() + 1;
+
+            _outlookMainPage.CreateNewDraft();
+
+            // assert
+            Assert.AreEqual(draftsCount, _outlookMainPage.GetDraftsCount());
 
             // signout
             _outlookMainPage.SignOut();
@@ -41,9 +49,16 @@ namespace OutlookTests
             _signinPage = new SigninPage();
             _signinPage.Signin();
 
-            // send message
+            // discard message
             _outlookMainPage = new OutlookMainPage();
+
+            //expected value
+            int draftsCount = _outlookMainPage.GetDraftsCount() - 1;
+
             _outlookMainPage.DeleteMessage();
+
+            // assert
+            Assert.AreEqual(draftsCount, _outlookMainPage.GetDraftsCount());
 
             // signout
             _outlookMainPage.SignOut();

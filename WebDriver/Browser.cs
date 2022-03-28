@@ -38,6 +38,11 @@ namespace OutlookTests.WebDriver
             _driver.Navigate().GoToUrl(url);
         }
 
+        public static void ImplicitWait(int sec)
+        {
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(sec);
+        }
+
         public static IWebDriver GetDriver()
         {
             return _driver;

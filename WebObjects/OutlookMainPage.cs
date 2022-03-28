@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using System;
+using System.Threading;
 
 namespace OutlookTests.WebObjects
 {
@@ -29,7 +31,9 @@ namespace OutlookTests.WebObjects
         private readonly BaseElement _profileIcon = new BaseElement(By.XPath("//button[contains(@id, 'MainLink_Me')]"));
         private readonly BaseElement _signoutButton = new BaseElement(By.XPath("//div[@class='mectrl_currentAccount']/a"));
 
-        public void CreateNewMessage()
+        private readonly BaseElement _draftsCountSpan = new BaseElement(By.XPath("//div[@title='Drafts'][1]/../div/span[2]/span/span[1]"));
+
+        public void CreateNewDraft()
         {
             _newMessageButton.Click();
 
@@ -39,10 +43,21 @@ namespace OutlookTests.WebObjects
 
             _closemessageButton.Click();
         }
+
+        public void NavigateToDraftComponent()
+        {
+            _draftsButton.Click();
+        }
+
+        public int GetDraftsCount()
+        {
+            Thread.Sleep(1000); //FIX:USE IMPLICIT DRIVER WAIT
+            return Convert.ToInt32(_draftsCountSpan.GetText());
+        }
          
         public void DeleteMessage()
         {
-            _draftsButton.Click();
+            NavigateToDraftComponent();
 
             _selectDraftToDeleteSpan.Click();
             _discardMessageButton.Click();

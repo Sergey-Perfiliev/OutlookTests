@@ -28,7 +28,7 @@ namespace OutlookTests.WebObjects
         public string GetText()
         {
             WaitForIsVisible();
-            return _element.Text;
+            return _driver.FindElement(_locator).Text;
         }
 
         public IWebElement GetElement()
