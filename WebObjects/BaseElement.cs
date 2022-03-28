@@ -66,19 +66,19 @@ namespace OutlookTests.WebObjects
             });
         }
 
-        public string TagName => throw new NotImplementedException();
+        public string TagName { get; }
 
-        public string Text => throw new NotImplementedException();
+        public string Text { get; }
 
-        public bool Enabled => throw new NotImplementedException();
+        public bool Enabled { get; }
 
-        public bool Selected => throw new NotImplementedException();
+        public bool Selected { get; }
 
-        public Point Location => throw new NotImplementedException();
+        public Point Location { get; }
 
-        public Size Size => throw new NotImplementedException();
+        public Size Size { get; }
 
-        public bool Displayed => throw new NotImplementedException();
+        public bool Displayed { get; }
 
         public void Clear()
         {
@@ -93,7 +93,8 @@ namespace OutlookTests.WebObjects
 
         public void Submit()
         {
-            throw new NotImplementedException();
+            WaitForIsVisible();
+            Browser.GetDriver().FindElement(_locator).Submit();
         }
 
         public void Click()
@@ -141,7 +142,8 @@ namespace OutlookTests.WebObjects
 
         public IWebElement FindElement(By by)
         {
-            throw new NotImplementedException();
+            WaitForIsVisible();
+            return Browser.GetDriver().FindElement(by);
         }
 
         public ReadOnlyCollection<IWebElement> FindElements(By by)
