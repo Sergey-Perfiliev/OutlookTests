@@ -10,8 +10,6 @@ namespace OutlookTests.WebObjects
     public class SigninPage : BasePage
     {
         private static readonly By SigninLbl = By.Id("loginHeader");
-        private string email = "testpostlook@outlook.com";
-        private string password = "test_login";
 
         public SigninPage() : base(SigninLbl, "Signin Page") { }
 
@@ -20,7 +18,7 @@ namespace OutlookTests.WebObjects
         private readonly BaseElement _submitButton = new BaseElement(By.XPath("//input[@type='submit']"));
         private readonly BaseElement _backButton = new BaseElement(By.Id("idBtn_Back"));
 
-        public void Signin()
+        public void Signin(string email, string password)
         {
             _signinEmailInput.SendKeys(email);
             _submitButton.Click();

@@ -8,6 +8,8 @@ namespace OutlookTests.Tests
     {
         protected static Browser Browser = Browser.Instance;
 
+        public TestContext? TestContext { get; set; }
+
         [TestInitialize]
         public void TestSetup()
         {
