@@ -37,9 +37,9 @@ namespace OutlookTests.WebObjects
         {
             _newMessageButton.Click();
 
-            _receiverMailAdressMessageInput.SendKeys(receiverMailAdressMessage);
-            _subjectMailMessageInput.SendKeys(subjectMailMessage);
-            _textMailMessageInput.SendKeys(textMailMessage);
+            FillInput(_receiverMailAdressMessageInput, receiverMailAdressMessage);
+            FillInput(_subjectMailMessageInput, subjectMailMessage);
+            FillInput(_textMailMessageInput, textMailMessage);
 
             _closemessageButton.Click();
         }
@@ -69,7 +69,7 @@ namespace OutlookTests.WebObjects
             _draftsButton.Click();
             _messageToSend.Click();
 
-            _receiverMailAdressMessageInput.SendKeys(receiverMailAdressMessage);
+            FillInput(_receiverMailAdressMessageInput, receiverMailAdressMessage);
             _messageToSend.Click();
             _sendMessageButton.Click();
         }

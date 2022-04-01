@@ -20,5 +20,10 @@ namespace OutlookTests.WebObjects
             var label = new BaseElement(_titleLocator, _title);
             label.WaitForIsVisible();
         }
+
+        public void FillInput(BaseElement element, string value)
+        {
+            element.SendKeys(value);
+        }
     }
 }

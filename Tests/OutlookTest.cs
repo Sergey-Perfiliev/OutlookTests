@@ -26,12 +26,10 @@ namespace OutlookTests
             var user = new User(email, password);
 
             // navigate to signin page
-            _homePage = new HomePage();
-            _homePage.GoToSigninPage();
+            new HomePage().GoToSigninPage();
 
             // singin into outlook account
-            _signinPage = new SigninPage();
-            _signinPage.Signin(user);
+            new SigninPage().Signin(user);
 
             // create new draft
             _outlookMainPage = new OutlookMainPage();
@@ -60,12 +58,10 @@ namespace OutlookTests
             var user = new User(email, password);
 
             // navigate to signin page
-            _homePage = new HomePage();
-            _homePage.GoToSigninPage();
+            new HomePage().GoToSigninPage();
 
             // singin into outlook account
-            _signinPage = new SigninPage();
-            _signinPage.Signin(user);
+            new SigninPage().Signin(user);
 
             // discard message
             _outlookMainPage = new OutlookMainPage();
