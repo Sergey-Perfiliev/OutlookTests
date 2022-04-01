@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OutlookTests.Entities;
 using OutlookTests.Tests;
 using OutlookTests.WebObjects;
 using System;
@@ -22,13 +23,15 @@ namespace OutlookTests
             var email = TestContext.DataRow["email"].ToString();
             var password = TestContext.DataRow["password"].ToString();
 
+            var user = new User(email, password);
+
             // navigate to signin page
             _homePage = new HomePage();
             _homePage.GoToSigninPage();
 
             // singin into outlook account
             _signinPage = new SigninPage();
-            _signinPage.Signin(email, password);
+            _signinPage.Signin(user);
 
             // create new draft
             _outlookMainPage = new OutlookMainPage();
@@ -54,13 +57,15 @@ namespace OutlookTests
             var email = TestContext.DataRow["email"].ToString();
             var password = TestContext.DataRow["password"].ToString();
 
+            var user = new User(email, password);
+
             // navigate to signin page
             _homePage = new HomePage();
             _homePage.GoToSigninPage();
 
             // singin into outlook account
             _signinPage = new SigninPage();
-            _signinPage.Signin(email, password);
+            _signinPage.Signin(user);
 
             // discard message
             _outlookMainPage = new OutlookMainPage();
