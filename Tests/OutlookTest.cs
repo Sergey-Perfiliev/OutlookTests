@@ -6,7 +6,6 @@ using System;
 
 namespace OutlookTests
 {
-    [DeploymentItem(@"Resources")]
     [TestClass]
     public class OutlookTest : BaseTest
     {
@@ -14,7 +13,7 @@ namespace OutlookTests
         private SigninPage? _signinPage;
         private OutlookMainPage? _outlookMainPage;
 
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv",
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "Resources\\TestData.csv",
             "TestData#csv", DataAccessMethod.Sequential)]
         [TestMethod]
         public void Outlook_Signin_CreateMessage_Signout()
@@ -46,7 +45,7 @@ namespace OutlookTests
             _outlookMainPage.SignOut();
         }
 
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\TestData.csv",
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "Resources\\TestData.csv",
             "TestData#csv", DataAccessMethod.Sequential)]
         [TestMethod]
         public void Outlook_Signin_DiscardMessage_Signout()
