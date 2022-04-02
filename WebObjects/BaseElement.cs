@@ -25,10 +25,20 @@ namespace OutlookTests.WebObjects
             _locator = locator;
         }
 
-        public string GetText()
+        public string GetText() // FIX: 10seconds await, refactor method
         {
-            WaitForIsVisible();
-            return _driver.FindElement(_locator).Text;
+            string text;
+            try
+            {
+                WaitForIsVisible();
+                text = _driver.FindElement(_locator).Text;
+            }
+            catch (WebDriverTimeoutException)
+            {
+                text = "";
+            }
+
+            return text;
         }
 
         public IWebElement GetElement()

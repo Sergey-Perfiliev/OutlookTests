@@ -1,2 +1,3 @@
-email,password
-testpostlook@outlook.com,test_login
+email,password,messageReceiver,messageSubject,messageText
+testpostlook@outlook.com,test_login,testreceivelook@outlook.com,Selenium PageObject,Layers
+testpostlook@outlook.com,test_login,testreceivelook@outlook.com,Greetings,Hi!
