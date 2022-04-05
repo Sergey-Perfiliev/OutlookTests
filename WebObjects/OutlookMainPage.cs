@@ -24,10 +24,13 @@ namespace OutlookTests.WebObjects
         private readonly BaseElement _messageToSend = new BaseElement(By.XPath("//div[@aria-label='Message list']//div[@role='listbox']/div/div/div[2]"));
         private readonly BaseElement _sendMessageButton = new BaseElement(By.XPath("//div[@id='docking_InitVisiblePart_0']//button[@aria-label='Send']"));
 
+        //private readonly BaseElement _profileIcon = new BaseElement(By.XPath("//div[contains(@id, 'HeaderRightRegion')]//button"));
         private readonly BaseElement _profileIcon = new BaseElement(By.XPath("//button[contains(@id, 'MainLink_Me')]"));
+        
+        private readonly BaseElement _currentEmail = new BaseElement(By.XPath("//div[@id='mectrl_currentAccount_secondary']"));
         private readonly BaseElement _signoutButton = new BaseElement(By.XPath("//div[@class='mectrl_currentAccount']/a"));
 
-        private readonly BaseElement _draftsCountSpan = new BaseElement(By.XPath("//div[@title='Drafts'][1]/../div/span[2]/span/span[1]"));
+        private readonly BaseElement _draftsCountSpan = new BaseElement(By.XPath("//div[@title='Drafts'][1]/span[last()]/span/span[1]"));
 
         public void CreateNewDraft(string messageReceiver, string messageSubject, string messageText)
         {
@@ -86,6 +89,14 @@ namespace OutlookTests.WebObjects
             FillInput(_receiverMailAdressMessageInput, messageReceiver);
             _messageToSend.Click();
             _sendMessageButton.Click();
+        }
+
+        public string GetCurrentEmail()
+        {
+            new BaseElement(By.XPath("//div[@role='complementary']/div/div/div/div[1]")).Click(); // FIX: DISABLE SITE SETTING REQUEST
+            
+            _profileIcon.Click();
+            return _currentEmail.GetText();
         }
 
         public void SignOut()

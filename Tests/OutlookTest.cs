@@ -1,10 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OutlookTests.Entities;
-using OutlookTests.Tests;
 using OutlookTests.WebObjects;
-using System;
 
-namespace OutlookTests
+namespace OutlookTests.Tests
 {
     [TestClass]
     public class OutlookTest : BaseTest
@@ -15,7 +13,7 @@ namespace OutlookTests
 
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "Resources\\TestData.csv",
             "TestData#csv", DataAccessMethod.Sequential)]
-        [TestMethod]
+        [TestMethod, Priority(2), TestCategory("Drafts")]
         public void Assert_CreateDraft_Created()
         {
             // get data from csv file
@@ -50,7 +48,7 @@ namespace OutlookTests
 
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "Resources\\TestData.csv",
             "TestData#csv", DataAccessMethod.Sequential)]
-        [TestMethod]
+        [TestMethod, Priority(2), TestCategory("Drafts")]
         public void Assert_DeleteDraft_Deleted()
         {
             // get data from csv file
